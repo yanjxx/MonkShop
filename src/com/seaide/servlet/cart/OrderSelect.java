@@ -14,44 +14,58 @@ import javax.servlet.http.HttpSession;
 import com.seaide.entity.Cart;
 import com.seaide.entity.User;
 import com.seaide.service.CARTDao;
-import com.sun.media.sound.SoftSynthesizer;
 
 /**
- * Servlet implementation class ShowCart
+ * Servlet implementation class OrderSelect
  */
-@WebServlet("/showcart")
-public class ShowCart extends HttpServlet {
+@WebServlet("/orderselect")
+public class OrderSelect extends HttpServlet {
 	
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		
-		HttpSession session = request.getSession();
+		HttpSession session =  request.getSession();
 		
 		String isLogin = (String)session.getAttribute("isLogin");
 		
-		User user = (User)session.getAttribute("name");
-		System.out.println("shoucat1");
+		User user = (User) session.getAttribute("name");
+		
+		String eids = request.getParameter("eids");
+		
+	
+		
 		if(user!=null && isLogin.equals("1")) {
-			String uid = (String)user.getUSER_ID();
+			int totalprice = 0;
 			
-			ArrayList<Cart> list = CARTDao.getCart(uid);
+			String ids[] = eids.split(",");
+			
+			ArrayList<Cart> list = new ArrayList<Cart>();
+			
+			for(int i=0; i<ids.length; i++) {
+				Cart es = CARTDao.getCartShop(ids[i]);
+				
+				int dprice = es.getCart_p_price() * es.getCart_quantity();
+				
+				totalprice += dprice;
+				
+				list.add(es);
+			}
 			
 			request.setAttribute("shoplist", list);
-			System.out.println("shoucat2");
+			request.setAttribute("totalprice", totalprice);
+			request.getRequestDispatcher("order.jsp").forward(request, response);
 			
-			request.getRequestDispatcher("cart.jsp").forward(request, response);
-			System.out.println("shoucat3");
-		}else {
+		}else{
+			
 			PrintWriter out = response.getWriter();
+			
 			out.write("<script>");
-			out.write("alert('购物车添加失败')");
-			out.write("location.href='index.jsp'");
+			out.write("alert('登录后，再购买');");
+			out.write("location.href='login.jsp'");
 			out.write("</script>");
+			out.close();
 		}
 	}
 

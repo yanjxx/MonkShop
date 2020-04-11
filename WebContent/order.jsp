@@ -11,66 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/mygxin.css"/>
 </head>
 <body><!----------------------------------------order------------------>
-<div class="head ding">
-    <div class="wrapper clearfix">
-        <div class="clearfix" id="top"><h1 class="fl"><a href="index.html"><img src="img/logo.png"/></a></h1>
-            <div class="fr clearfix" id="top1"><p class="fl"><a href="#" id="login">登录</a><a href="#" id="reg">注册</a>
-            </p>
-                <form action="#" method="get" class="fl"><input type="text" placeholder="搜索"/><input type="button"/>
-                </form>
-                <div class="btn fl clearfix"><a href="mygxin.html"><img src="img/grzx.png"/></a><a href="#" class="er1"><img
-                        src="img/ewm.png"/></a><a href="cart.html"><img src="img/gwc.png"/></a>
-                    <p><a href="#"><img src="img/smewm.png"/></a></p></div>
-            </div>
-        </div>
-        <ul class="clearfix" id="bott">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="#">所有商品</a>
-                <div class="sList">
-                    <div class="wrapper  clearfix"><a href="paint.html">
-                        <dl>
-                            <dt><img src="img/nav1.jpg"/></dt>
-                            <dd>浓情欧式</dd>
-                        </dl>
-                    </a><a href="paint.html">
-                        <dl>
-                            <dt><img src="img/nav2.jpg"/></dt>
-                            <dd>浪漫美式</dd>
-                        </dl>
-                    </a><a href="paint.html">
-                        <dl>
-                            <dt><img src="img/nav3.jpg"/></dt>
-                            <dd>雅致中式</dd>
-                        </dl>
-                    </a><a href="paint.html">
-                        <dl>
-                            <dt><img src="img/nav6.jpg"/></dt>
-                            <dd>简约现代</dd>
-                        </dl>
-                    </a><a href="paint.html">
-                        <dl>
-                            <dt><img src="img/nav7.jpg"/></dt>
-                            <dd>创意装饰</dd>
-                        </dl>
-                    </a></div>
-                </div>
-            </li>
-            <li><a href="flowerDer.html">装饰摆件</a>
-                <div class="sList2">
-                    <div class="clearfix"><a href="proList.html">干花花艺</a><a href="vase_proList.html">花瓶花器</a></div>
-                </div>
-            </li>
-            <li><a href="decoration.html">布艺软饰</a>
-                <div class="sList2">
-                    <div class="clearfix"><a href="zbproList.html">桌布罩件</a><a href="bzproList.html">抱枕靠垫</a></div>
-                </div>
-            </li>
-            <li><a href="paint.html">墙式壁挂</a></li>
-            <li><a href="perfume.html">蜡艺香薰</a></li>
-            <li><a href="idea.html">创意家居</a></li>
-        </ul>
-    </div>
-</div>
+<%@ include file="header.jsp" %>
 <div class="order cart mt"><!-----------------site------------------->
     <div class="site"><p class="wrapper clearfix"><span class="fl">订单确认</span><img class="top"
                                                                                    src="img/temp/cartTop02.png"></p>
@@ -89,14 +30,14 @@
                     <div class="tit clearfix"><p class="fl">张三2</p>
                         <p class="fr"><a href="#" class="setDefault">设为默认</a><span>|</span><a
                                 href="#">删除</a><span>|</span><a href="#" class="edit">编辑</a></p></div>
-                    <div class="addCon"><p>河北省&nbsp;唐山市&nbsp;路北区&nbsp;大学生公寓村</p>
+                    <div class="addCon"><p>广东省&nbsp;广州市&nbsp;番禺区&nbsp;大学城</p>
                         <p>15732570937</p></div>
                 </div>
                 <div class="addre fl">
                     <div class="tit clearfix"><p class="fl">张三3</p>
                         <p class="fr"><a href="#" class="setDefault">设为默认</a><span>|</span><a
                                 href="#">删除</a><span>|</span><a href="#" class="edit">编辑</a></p></div>
-                    <div class="addCon"><p>河北省&nbsp;唐山市&nbsp;路北区&nbsp;大学生公寓村</p>
+                    <div class="addCon"><p>广东省&nbsp;广州市&nbsp;番禺区&nbsp;大学城广东工业大学</p>
                         <p>15732570937</p></div>
                 </div>
             </div>
@@ -104,7 +45,7 @@
             <div class="way clearfix"><img class="on" src="img/temp/way01.jpg"><img src="img/temp/way02.jpg"><img
                     src="img/temp/way03.jpg"><img src="img/temp/way04.jpg"></div>
             <h3>选择快递</h3><!--------dis---------------->
-            <div class="dis clearfix"><span class="on">顺风快递</span><span>百世汇通</span><span>圆通快递</span><span>中通快递</span>
+            <div class="dis clearfix"><span class="on">顺丰快递</span><span>百世汇通</span><span>圆通快递</span><span>中通快递</span>
             </div>
         </div>
         <div class="orderR fr">
@@ -113,7 +54,7 @@
               <c:forEach var="rs" items="${requestScope.shoplist }">
               
                 <ul class="clearfix">
-                    <li class="fl"><img width="100" height="100" src="images/product/${rs.cart_p_filename}"></li>
+                    <li class="fl"><img width="100" height="100" src="product/${rs.cart_p_filename}"></li>
                     <li class="fl"><p>${rs.cart_p_name }</p>
                         <p>颜色分类：烟灰色玻璃瓶</p>
                         <p>数量：${rs.cart_quantity}</p></li>

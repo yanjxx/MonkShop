@@ -96,7 +96,7 @@
             	<span></span></label>
             	<a class="fl" href="selectproductview?id=${rs.cart_p_id }">
                 <dl class="clearfix">
-                    <dt class="fl"><img width="120" height="120" src="images/product/${rs.cart_p_filename }"></dt>
+                    <dt class="fl"><img width="120" height="120" src="product/${rs.cart_p_filename }"></dt>
                     <dd class="fl"><p>${rs.cart_p_name }</p>
                         <p>图书分类</p>
                         <p>好书+内容全</p></dd>

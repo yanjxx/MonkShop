@@ -13,7 +13,7 @@
             	</c:if>
             	
             	<c:if test="${isLogin ==1 }">
-            		<b>你好：</b><a href="login.jsp" id="login">${name.USER_NAME }</a>
+            		<b>你好：</b><a href="mygxin.jsp" id="login">${name.USER_NAME }</a>
             	
             	</c:if>
             	
